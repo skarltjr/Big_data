@@ -124,3 +124,21 @@ print(pos_tag(tokens)) # 각 단어의 품사 파악
 nouns = [x for x in pos_tag(tokens) if x[1] == "NN"]
 print(nouns)
 ```
+```
+문자 파악해보기
+import string
+printable = string.printable
+
+# 출력 가능한 모든 문자 출력
+print(printable)
+
+# 각 정규표현식의 패턴 문자 확인
+print('\w', re.findall('\w', printable))
+print('\W', re.findall('\W', printable))
+print('\d', re.findall('\d', printable))
+print('\D', re.findall('\D', printable))
+print('\s', re.findall('\s', printable))
+print('\S', re.findall(r'\S', printable))
+print('\\b', re.findall(r'\b', printable))
+print('\B', re.findall(r'\B', printable))
+```
