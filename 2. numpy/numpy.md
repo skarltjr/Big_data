@@ -68,3 +68,46 @@ j2 = j[np.newaxis,:]
 j2[0]
 
 ```
+```
+# numpy의 sum은 매우 빠르다
+big_array = np.random.rand(10000)
+#%timeit sum(big_array)
+#%timeit np.sum(big_array)
+
+# min max도 존재
+min(big_array),max(big_array)
+ 
+# random 2차원 배열
+myarr = np.random.random((3,4))
+
+# 그리고 이 2차원 배열의 column, row에 대해서만 계산도 할 수 있다
+myarr.sum(axis=0) # column별
+myarr.sum(axis=1) # row 
+
+# 평균 표준편차도 가능하다
+myarr.mean()
+myarr.std()
+
+# broadcast
+arr1 = np.ones((3,3)) # 1로 채워진 3*3
+print(arr1 + 1) # 여기에 1을 더하면???
+
+# 서로 다른 행렬을 더하면?
+a = np.arange(3) # [0 1 2] = 1*3 행렬
+b = np.arange(3)[:,np.newaxis] # [[0][1][2]] = 3*1 
+print('result')
+print(a)
+print(b)
+print(a+b) # 3*3행렬
+
+# numpy의 강력한 장점은 조건에 맞는 값만 골라낼 수 있다
+rng = np.random.RandomState(0)
+x = rng.randint(10,size=(3,4))
+x # 0~10 값을 랜덤으로 가진 3*4 행렬을 조건으로 걸러내보자
+
+# 6보다 작은 애들 개수는? 
+
+# 각 row에 대해 6보다 작은 값만 다 더해보자
+np.sum(x <6,axis = 1)
+
+```
